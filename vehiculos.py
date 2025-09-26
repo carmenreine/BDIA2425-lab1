@@ -184,8 +184,8 @@ def write_csv(filas: list[dict], ruta: str) -> None:
 # ---------- MAIN ----------
 if __name__ == "__main__":
     MAX_POR_USUARIO = 3
-    FICHERO_USUARIOS = "conjuntos_datos/users.csv"
-    FICHERO_SALIDA = "conjuntos_datos/vehiculos.csv"
+    FICHERO_USUARIOS = "conjunto_datos/users.csv"
+    FICHERO_SALIDA = "conjunto_datos/vehiculos.csv"
 
     ids_usuarios = leer_ids_usuarios(FICHERO_USUARIOS)
     vehiculos = generar_vehiculos(ids_usuarios, MAX_POR_USUARIO)
