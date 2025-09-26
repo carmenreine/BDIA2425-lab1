@@ -1,0 +1,117 @@
+---- JUSTIFICACIÓN DE LA GENERACIÓN DEL VIN EN DATOS SINTÉTICOS ----
+
+El VIN (Vehicle Identification Number) es un número de bastidor estándar definido en la norma ISO 3779,
+de 17 caracteres de longitud. Su estructura es la siguiente:
+
+1. WMI (World Manufacturer Identifier) – posiciones 1–3
+   - Identifica el país y el fabricante del vehículo.
+   - En este dataset sintético, se ha asignado el WMI correcto a cada marca (ejemplo: SEAT → VSS, Renault → VF1).
+   - De esta forma, se garantiza que cada vehículo tiene un número de bastidor que comienza con el prefijo
+     correspondiente a su fabricante real.
+
+2. VDS (Vehicle Descriptor Section) – posiciones 4–9
+   - Representa información técnica del vehículo: modelo, tipo de carrocería, motor, sistemas de seguridad, etc.
+   - Esta codificación varía entre fabricantes y no es pública ni uniforme.
+   - En este dataset se genera aleatoriamente, pero respetando los caracteres válidos (sin I, O ni Q),
+     lo que asegura que el VIN tenga un formato realista aunque no contenga datos técnicos específicos.
+
+3. VIS (Vehicle Identifier Section) – posiciones 10–17
+   - Incluye información sobre el año de fabricación, la planta de montaje y el número de serie del vehículo.
+   - El 10º carácter se ha hecho coincidir con el año de matriculación del vehículo,
+     utilizando la tabla oficial de códigos de año VIN (1990 → L, 2005 → 5, 2015 → F, 2025 → S).
+   - Los caracteres 11–17 se generan de forma aleatoria, simulando el número de serie.
+
+CONCLUSIÓN
+Con esta metodología, los VIN generados son siempre de 17 caracteres válidos, con un prefijo coherente con la marca
+y con el año reflejado correctamente en el carácter 10. Aunque el VDS y parte del VIS son aleatorios,
+esto está justificado porque la información técnica real no está disponible en un dataset sintético,
+y lo importante es mantener la coherencia de formato y de los elementos clave.
+
+
+---- JUSTIFICACIÓN DE LA GENERACIÓN DE MARCAS, MODELOS Y CATEGORÍAS ----
+
+Para asegurar que los vehículos sintéticos sean coherentes con la realidad del mercado español, se ha seguido
+un proceso específico para definir las marcas, los modelos y sus categorías:
+
+1. MARCAS
+   - Se han elegido fabricantes con presencia real en España, tanto nacionales (SEAT) como internacionales
+     (Renault, Peugeot, Volkswagen, Ford, etc.).
+   - Esto garantiza que las combinaciones generadas correspondan a vehículos efectivamente disponibles
+     en el mercado español durante los últimos 30 años.
+
+2. MODELOS
+   - Los modelos de cada marca se han obtenido a partir de catálogos históricos y actuales, verificando
+     que hayan estado disponibles en España.
+   - Para cada modelo se ha definido un rango de años (Inicio – Fin) en el que estuvo a la venta.
+   - De esta forma, un Renault Clio nunca aparecerá en 1985 ni un Nissan Qashqai en 1990,
+     ya que sus ventas comenzaron en fechas posteriores.
+
+3. CATEGORÍAS
+   - Cada modelo se ha asignado a una o varias categorías, según las versiones de carrocería ofrecidas.
+   - Ejemplo: El Ford Focus puede clasificarse como urbano, berlina, deportivo o incluso descapotable,
+     porque han existido distintas versiones a lo largo de su producción.
+   - Esto permite que un mismo modelo pueda generar vehículos de distintas categorías coherentes
+     con las opciones reales de los concesionarios.
+
+CONCLUSIÓN
+Gracias a este diseño, cada vehículo sintético generado mantiene la coherencia entre:
+   - Año ↔ Modelo (solo aparece dentro de su rango de producción)
+   - Marca ↔ Modelo (cada modelo pertenece a su fabricante real)
+   - Modelo ↔ Categoría (cada modelo se clasifica en categorías que existen en la práctica)
+De esta forma, los datos se ajustan a la realidad del mercado automovilístico español y se evita
+la generación de combinaciones imposibles o irreales.
+
+---- JUSTIFICACIÓN DE LA GENERACIÓN DE MATRÍCULAS ---- 
+
+Para la generación de matrículas sintéticas se han considerado los dos sistemas vigentes en España,
+usando fuentes oficiales y verificables:
+
+1. MATRÍCULAS ANTIGUAS (hasta 1999)
+   - Formato: Código provincial + 4 números + 2 letras (ejemplo: M-1234-AB).
+   - Los códigos de provincias se han obtenido de:
+     Wikipedia – Provincias de España por código postal
+     https://es.wikipedia.org/wiki/Anexo:Provincias_de_Espa%C3%B1a_por_c%C3%B3digo_postal
+   - De esta forma, cada matrícula generada anterior al año 2000 incluye un prefijo real de provincia.
+
+2. MATRÍCULAS MODERNAS (desde 2000)
+   - Formato: 4 números + 3 letras (ejemplo: 1234 BCD).
+   - Las series de letras por año se han extraído de la tabla oficial publicada en:
+     Diesel o Gasolina – Tabla de matrículas por años
+     https://www.dieselogasolina.com/tabla-matriculas-por-anos.html
+   - Esto garantiza que las matrículas asignadas en el dataset son coherentes con el año de matriculación.
+
+CONCLUSIÓN
+Con este enfoque, las matrículas generadas mantienen coherencia temporal:
+   - Antes del 2000 → sistema provincial real.
+   - A partir del 2000 → sistema alfanumérico moderno, con series correctas según el año.
+De esta manera, los datos sintéticos imitan fielmente la evolución histórica del sistema de matriculación en España.
+
+---- JUSTIFICACIÓN DEL USO DE FAKER, USUARIOS Y EXPORTACIÓN ----
+
+1. Usuarios y relación vehículos ↔ personas
+
+   * Los vehículos se asignan a los usuarios a partir del fichero `users.csv`.
+   * Cada usuario puede tener entre 0 y 3 vehículos, lo que refleja un escenario realista:
+
+     * Algunas personas no poseen coche.
+     * Otras pueden tener varios (ejemplo: coche personal + familiar).
+   * Esto aporta diversidad y evita una distribución poco realista (ejemplo: que todos tengan exactamente un coche).
+
+2. Uso de la librería Faker
+
+   * Faker se utiliza para introducir variabilidad controlada en atributos como elección de modelos, categorías y asignación de vehículos a usuarios.
+   * Se usa `fake.random_element` para elegir elementos de listas de marcas, modelos o categorías.
+   * Esto permite que el dataset sea **reproducible pero no determinista**, aportando riqueza en los datos.
+
+3. Control de unicidad
+
+   * Se utilizan conjuntos (`set()`) para garantizar que tanto las matrículas como los VIN generados son **únicos**, evitando duplicados.
+   * Esto es importante porque en la realidad no existen dos vehículos con la misma matrícula o el mismo número de bastidor.
+
+4. Formato de exportación
+
+   * Los resultados se exportan en formato **CSV** con codificación UTF-8.
+   * Esto garantiza compatibilidad con cualquier Sistema Gestor de Bases de Datos (SGBD) y evita problemas con caracteres especiales (como tildes o diéresis).
+   * La cabecera del CSV incluye todos los campos relevantes:
+     `Matricula, VIN, Año, Fabricante, Modelo, Categoria, DNI_Propietario`.
+

@@ -1,0 +1,82 @@
+Marca,Modelo,Inicio,Fin,Categorias
+SEAT,Ibiza,1984,2025,urbanos|deportivo
+SEAT,León,1999,2025,berlina|compacto|deportivo
+SEAT,Ateca,2016,2025,SUV
+SEAT,Arona,2017,2025,SUV
+SEAT,Toledo,1991,2019,sedán|berlina
+Renault,Clio,1990,2025,urbanos|deportivo
+Renault,Mégane,1995,2025,berlina|compacto|deportivo
+Renault,Captur,2013,2025,SUV
+Renault,Kadjar,2015,2022,SUV
+Renault,Laguna,1994,2015,berlina|sedán
+Peugeot,208,2012,2025,urbanos|deportivo
+Peugeot,308,2007,2025,compacto|deportivo
+Peugeot,2008,2013,2025,SUV
+Peugeot,3008,2009,2025,SUV
+Peugeot,5008,2009,2025,SUV
+Citroën,C3,2002,2025,urbanos
+Citroën,C4,2004,2025,compacto|deportivo
+Citroën,C5 Aircross,2017,2025,SUV
+Citroën,Berlingo,1996,2025,monovolumen|todoterreno
+Ford,Fiesta,1976,2025,urbanos|deportivo
+Ford,Focus,1998,2025,berlina|compacto|deportivo|descapotable
+Ford,Kuga,2008,2025,SUV|todoterreno
+Ford,Mondeo,1993,2022,berlina|sedán
+Opel,Corsa,1982,2025,urbanos|deportivo
+Opel,Astra,1991,2025,compacto|deportivo
+Opel,Insignia,2008,2022,berlina|sedán
+Opel,Mokka,2012,2025,SUV
+Volkswagen,Golf,1974,2025,compacto|deportivo|descapotable
+Volkswagen,Polo,1975,2025,urbanos|deportivo
+Volkswagen,Passat,1973,2025,berlina|sedán
+Volkswagen,Tiguan,2007,2025,SUV
+Toyota,Corolla,1966,2025,compacto|sedán
+Toyota,Yaris,1999,2025,urbanos
+Toyota,RAV4,1994,2025,SUV|todoterreno
+Toyota,Auris,2006,2019,compacto|sedán
+Nissan,Micra,1982,2025,urbanos|deportivo
+Nissan,Qashqai,2006,2025,SUV
+Nissan,X-Trail,2000,2025,SUV|todoterreno
+Hyundai,i10,2007,2025,urbanos
+Hyundai,i20,2008,2025,urbanos
+Hyundai,i30,2007,2025,compacto|deportivo
+Hyundai,Tucson,2004,2025,SUV
+Kia,Rio,2000,2025,urbanos
+Kia,Ceed,2006,2025,compacto|deportivo
+Kia,Sportage,1993,2025,SUV
+Kia,Stonic,2017,2025,SUV
+BMW,Serie 1,2004,2025,compacto|deportivo
+BMW,Serie 3,1975,2025,berlina|deportivo|descapotable|cupé
+BMW,X1,2009,2025,SUV
+BMW,X3,2003,2025,SUV
+Audi,A1,2010,2025,urbanos
+Audi,A3,1996,2025,compacto|deportivo|descapotable
+Audi,A4,1994,2025,berlina|sedán
+Audi,Q3,2011,2025,SUV
+Audi,Q5,2008,2025,SUV
+Mercedes-Benz,Clase A,1997,2025,compacto|deportivo
+Mercedes-Benz,Clase C,1993,2025,berlina|deportivo|descapotable|cupé
+Mercedes-Benz,GLA,2014,2025,SUV
+Mercedes-Benz,GLC,2015,2025,SUV
+Fiat,Panda,1980,2025,urbanos
+Fiat,500,2007,2025,urbanos|deportivo|descapotable
+Fiat,Tipo,1988,1995,compacto|berlina
+Fiat,Tipo,2015,2025,compacto|berlina
+Dacia,Sandero,2007,2025,urbanos
+Dacia,Duster,2010,2025,SUV
+Dacia,Lodgy,2012,2022,monovolumen|urbanos
+Skoda,Fabia,1999,2025,urbanos
+Skoda,Octavia,1996,2025,berlina|compacto
+Skoda,Karoq,2017,2025,SUV
+Skoda,Kodiaq,2016,2025,SUV
+Mazda,Mazda 2,2002,2025,urbanos
+Mazda,Mazda 3,2003,2025,compacto|deportivo
+Mazda,CX-3,2015,2025,SUV
+Mazda,CX-5,2012,2025,SUV
+Mitsubishi,ASX,2010,2025,SUV
+Mitsubishi,Outlander,2001,2025,SUV|todoterreno
+Mitsubishi,Eclipse Cross,2017,2025,SUV|deportivo
+Volvo,V40,1995,2019,compacto
+Volvo,XC40,2017,2025,SUV
+Volvo,XC60,2008,2025,SUV
+Volvo,XC90,2002,2025,SUV|todoterreno
